@@ -1,6 +1,9 @@
 package view;
 
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -60,6 +63,8 @@ public class PessoaFisica extends JFrame{
 	MaskFormatter formatCpf = null;
 	MaskFormatter formatCep = null;
 	MaskFormatter formatRg = null;
+	
+	model.PessoaFisica pessoaFisica = new model.PessoaFisica();
 
 	public PessoaFisica(){
 		super("Cadastro PF");
@@ -173,6 +178,12 @@ public class PessoaFisica extends JFrame{
 		
 		paine.add(btnSalvar);
 		btnSalvar.setBounds(250, 250, 130, 30);
+		btnSalvar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				pessoaFisica.setNome(txtNome.getText());
+				pessoaFisica.setEndereco(txtEnd.getText());
+			}
+		});
 		
 		paine.add(btnImprimir);
 		btnImprimir.setBounds(390, 250, 130, 30);
